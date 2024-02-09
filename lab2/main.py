@@ -26,7 +26,7 @@ def db_init_populate():
 client = pymongo.MongoClient('localhost', 27017)
 db = client['restaurant_database']
 collection = db['restaurants']
-# db_init_write()
+# db_init_populate()
 
 # 2.
 all_objects = list(collection.find({}))
