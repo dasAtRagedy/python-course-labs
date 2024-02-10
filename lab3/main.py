@@ -17,6 +17,14 @@ def fibonacci(n: int) -> int:
     1
     >>> fibonacci(10)
     55
+    >>> fibonacci(-1)
+    Traceback (most recent call last):
+        ...
+    IndexError: Index is out of range
+    >>> fibonacci("1")
+    Traceback (most recent call last):
+        ...
+    TypeError: n must be a non-negative integer
     """
     if not isinstance(n, int): raise TypeError("n must be a non-negative integer")
     if n < 0: raise IndexError("Index is out of range")
