@@ -7,6 +7,10 @@ def fibonacci(n: int) -> int:
     Returns:
         A Fibonacci number in int format
     
+    Raises:
+        TypeError: n must be a non-negative integer.
+        IndexError: Index is out of range.
+    
     >>> fibonacci(0)
     0
     >>> fibonacci(1)
@@ -14,6 +18,9 @@ def fibonacci(n: int) -> int:
     >>> fibonacci(10)
     55
     """
+    if not isinstance(n, int): raise TypeError("n must be a non-negative integer")
+    if n < 0: raise IndexError("Index is out of range")
+    
     a, b = 0, 1
     for _ in range(n):
         a, b = a + b, a
