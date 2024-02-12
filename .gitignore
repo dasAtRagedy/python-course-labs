@@ -1,0 +1,4 @@
+# windows dll files (for fibonacci.c)
+*.pyd
+
+build/
