@@ -10,10 +10,18 @@ static PyObject* py_fibonacci(PyObject* self, PyObject* args) {
     int n;
 
     if (!PyArg_ParseTuple(args, "i", &n)) {
+        PyErr_SetString(PyExc_TypeError, "n must be an integer");
         return NULL;
     }
 
-    return PyLong_FromUnsignedLongLong(fibonacci(n));
+    if (n < 0) {
+        PyErr_SetString(PyExc_IndexError, "Index is out of range");
+        return NULL;
+    }
+
+    unsigned long long answer = fibonacci(n);
+
+    return PyLong_FromUnsignedLongLong(answer);
 }
 
 static PyMethodDef FibonacciMethods[] = {
